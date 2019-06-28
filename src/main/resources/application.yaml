@@ -1,0 +1,26 @@
+server:
+  port: 8088
+  tomcat:
+    uri-encoding: utf-8
+
+spring:
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
+  datasource:
+    url: jdbc:mysql://192.168.100.39:3306/flash_dev?autoReconnect=true&serverTimezone=GMT%2B8&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: 123
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      max-wait: 10000
+      max-active: 50
+      min-idle: 8
+      test-on-borrow: true
+      validation-query: select 1
+
+mybatis:
+  mapper-locations: classpath:mappers/*.xml
+  config-location: classpath:mybatis-config.xml
